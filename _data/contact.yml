@@ -1,0 +1,12 @@
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/bangnbx"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true
+  url: "mailto:bangnbx@gmail.com"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/bangnbx"

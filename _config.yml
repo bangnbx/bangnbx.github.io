@@ -1,0 +1,121 @@
+# Chirpy Configuration
+# https://chirpy.cotes.page/posts/getting-started/
+
+theme: jekyll-theme-chirpy
+
+# Site
+lang: en
+timezone: Asia/Ho_Chi_Minh
+title: bangnbx
+tagline: # Software Engineer | Rust & Solana
+description: >-
+  Software engineering stuff
+url: "https://bangnbx.github.io"
+
+# Social
+github:
+  username: bangnbx
+
+social:
+  name: Bang Nguyen
+  email: bangnbx@gmail.com
+  links:
+    - https://github.com/bangnbx
+
+# Analytics (uncomment and add your ID when ready)
+# analytics:
+#   google:
+#     id: G-XXXXXXXXXX
+
+# Theme mode — leave blank for auto (system preference with toggle)
+theme_mode:
+
+# Avatar (add your photo to assets/img/avatar.jpg)
+avatar: /assets/img/favicon.svg
+
+# Table of contents
+toc: true
+
+# Comments (uncomment when ready)
+# comments:
+#   provider: giscus
+#   giscus:
+#     repo: bangnbx/bangnbx.github.io
+#     repo_id:
+#     category: General
+#     category_id:
+#     mapping: pathname
+#     reactions_enabled: 1
+
+# Self-hosted assets (uncomment if CDN blocked in Vietnam)
+# assets:
+#   self_host:
+#     enabled: true
+
+# Pagination
+paginate: 10
+
+# Sass
+sass:
+  style: compressed
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      pin: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+  - scope:
+      path: assets/img/favicons
+    values:
+      swcache: true
+
+# Plugins
+plugins:
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json
