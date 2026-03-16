@@ -23,9 +23,9 @@ social:
     - https://github.com/bangnbx
 
 # Analytics (uncomment and add your ID when ready)
- analytics:
-   google:
-     id: G-LDBWTWQNTK
+analytics:
+  google:
+    id: G-LDBWTWQNTK
 
 # Theme mode — leave blank for auto (system preference with toggle)
 theme_mode:
