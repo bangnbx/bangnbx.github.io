@@ -1,0 +1,7 @@
+.table-caption {
+  display: block;
+  text-align: center;
+  color: var(--text-muted-color);
+  margin-top: -0.5rem;
+  font-size: 0.9em;
+}

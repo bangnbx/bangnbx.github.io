@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+    <linearGradient id="appGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="embGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="420" rx="16" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Client-Server vs Embedded Database</text>
+
+  <!-- ===== LEFT: Client-Server ===== -->
+  <text x="225" y="72" text-anchor="middle" fill="#f87171" font-size="14" font-weight="600">Client-Server Database</text>
+
+  <!-- App Process -->
+  <rect x="40" y="95" width="160" height="70" rx="10" fill="url(#appGrad)" filter="url(#shadow)"/>
+  <text x="120" y="127" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Application</text>
+  <text x="120" y="148" text-anchor="middle" fill="#bfdbfe" font-size="11">Process A</text>
+
+  <!-- Overhead labels -->
+  <line x1="120" y1="165" x2="120" y2="195" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+  <rect x="155" y="172" width="115" height="20" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="212" y="186" text-anchor="middle" fill="#f87171" font-size="9">Serialization</text>
+
+  <!-- Network layer -->
+  <rect x="60" y="195" width="330" height="45" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="225" y="215" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="600">Network  ·  TCP/IP  ·  Protocol</text>
+  <text x="225" y="230" text-anchor="middle" fill="#f8717199" font-size="10">+ latency per round-trip</text>
+
+  <!-- Arrow down -->
+  <line x1="120" y1="240" x2="120" y2="270" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,3"/>
+  <rect x="155" y="247" width="115" height="20" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="212" y="261" text-anchor="middle" fill="#f87171" font-size="9">Query Parsing</text>
+
+  <!-- DB Server Process -->
+  <rect x="40" y="270" width="160" height="70" rx="10" fill="url(#dbGrad)" filter="url(#shadow)"/>
+  <text x="120" y="302" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">DB Server</text>
+  <text x="120" y="323" text-anchor="middle" fill="#fef3c7" font-size="11">Process B</text>
+
+  <!-- Arrow to disk -->
+  <line x1="120" y1="340" x2="120" y2="375" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Disk -->
+  <ellipse cx="120" cy="390" rx="50" ry="14" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="120" y="395" text-anchor="middle" fill="#94a3b8" font-size="10">Disk</text>
+
+  <!-- Red X / slow indicator -->
+  <rect x="290" y="330" width="100" height="50" rx="8" fill="#7f1d1d" opacity="0.6"/>
+  <text x="340" y="352" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">HIGH</text>
+  <text x="340" y="368" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">LATENCY</text>
+
+  <!-- ===== RIGHT: Embedded ===== -->
+  <text x="675" y="72" text-anchor="middle" fill="#34d399" font-size="14" font-weight="600">Embedded Database</text>
+
+  <!-- Single Process Box -->
+  <rect x="545" y="95" width="260" height="250" rx="12" fill="#064e3b" opacity="0.3" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="675" y="118" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="600">Single Process</text>
+
+  <!-- App -->
+  <rect x="590" y="130" width="170" height="60" rx="10" fill="url(#appGrad)" filter="url(#shadow)"/>
+  <text x="675" y="158" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Application</text>
+  <text x="675" y="176" text-anchor="middle" fill="#bfdbfe" font-size="11">+ DB Engine</text>
+
+  <!-- Direct function call arrow -->
+  <line x1="675" y1="190" x2="675" y2="245" stroke="#059669" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <rect x="700" y="205" width="110" height="20" rx="4" fill="#064e3b" stroke="#059669" stroke-width="0.5"/>
+  <text x="755" y="219" text-anchor="middle" fill="#34d399" font-size="9">Direct fn call</text>
+
+  <!-- Storage Engine -->
+  <rect x="590" y="245" width="170" height="60" rx="10" fill="url(#embGrad)" filter="url(#shadow)"/>
+  <text x="675" y="273" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Storage Engine</text>
+  <text x="675" y="291" text-anchor="middle" fill="#d1fae5" font-size="11">(RocksDB, LMDB, …)</text>
+
+  <!-- Arrow to disk -->
+  <line x1="675" y1="305" x2="675" y2="375" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- Disk -->
+  <ellipse cx="675" cy="390" rx="50" ry="14" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="675" y="395" text-anchor="middle" fill="#94a3b8" font-size="10">Disk</text>
+
+  <!-- Green check / fast indicator -->
+  <rect x="740" y="330" width="100" height="50" rx="8" fill="#064e3b" opacity="0.7"/>
+  <text x="790" y="352" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="700">LOW</text>
+  <text x="790" y="368" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="700">LATENCY</text>
+
+  <!-- Divider -->
+  <line x1="450" y1="60" x2="450" y2="410" stroke="#334155" stroke-width="1" stroke-dasharray="6,6"/>
+
+  <!-- VS -->
+  <circle cx="450" cy="220" r="20" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="450" y="225" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">vs</text>
+</svg>
