@@ -12,7 +12,9 @@ I am currently building a real-time Solana trade engine in Rust — handling on-
 
 Previously, I spent 7+ years at FPT Technology Research Institute, where I shipped production ML systems (eKYC, credit scoring) deployed across banking institutions.
 
-**Education:** M.S. in Computer Science (VNU University of Engineering and Technology)
+**Education:** 
+- M.S. in Computer Science (VNU University of Engineering and Technology)
+- B.S. in Electrical Engineering and Telecommunications (Talented program)
 
 **Publications:**
 - <a href="https://www.sciencedirect.com/science/article/pii/S2949719125000111" target="_blank" rel="noreferrer">Fine-tuning text-to-SQL models with reinforcement-learning training objectives</a> — NLP Journal, 2025
