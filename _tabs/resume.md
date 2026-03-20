@@ -3,7 +3,8 @@ layout: page
 title: Resume
 icon: fas fa-file
 order: 5
-permalink: /resume
+description: Software engineer — Solana infrastructure, low-latency systems, back-end development, ML integration. Rust, Python, JavaScript
+permalink: /resume/
 ---
 
 <style>
