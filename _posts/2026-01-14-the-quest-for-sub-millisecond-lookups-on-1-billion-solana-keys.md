@@ -3,6 +3,7 @@ title: The Quest for Sub-Millisecond Lookups on 1 billion Solana Keys
 date: 2026-01-14 10:14:00 +0700
 categories: [Solana]
 tags: [rust, solana, database, embedded database]
+comments: true
 ---
 
 ## Why I Need This

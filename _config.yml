@@ -37,15 +37,21 @@ avatar: /assets/img/favicon.svg
 toc: true
 
 # Comments (uncomment when ready)
-# comments:
-#   provider: giscus
-#   giscus:
-#     repo: bangnbx/bangnbx.github.io
-#     repo_id:
-#     category: General
-#     category_id:
-#     mapping: pathname
-#     reactions_enabled: 1
+comments:
+  provider: giscus
+  giscus:
+    repo: bangnbx/bangnbx.github.io
+    repo_id: R_kgDORkZE_Q
+    category: General
+    category_id: DIC_kwDORkZE_c4C43ue
+    mapping: pathname
+    strict: 1
+    reactions_enabled: 1
+    emit_metadata: 0
+    input_position: bottom
+    theme: preferred_color_scheme
+    lang: en
+    lazy: true
 
 # Self-hosted assets (uncomment if CDN blocked in Vietnam)
 # assets:
