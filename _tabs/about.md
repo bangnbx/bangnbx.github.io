@@ -14,7 +14,7 @@ Previously, I spent 7+ years at FPT Technology Research Institute, where I shipp
 **Education:** M.S. in Computer Science (VNU University of Engineering and Technology)
 
 **Publications:**
-- [Fine-tuning text-to-SQL models with reinforcement-learning training objectives](https://www.sciencedirect.com/science/article/pii/S2949719125000111) — NLP Journal, 2025
-- [A liveness detection protocol based on deep visual-linguistic alignment](https://ieeexplore.ieee.org/document/9953623) — IEEE KSE, 2022
+- <a href="https://www.sciencedirect.com/science/article/pii/S2949719125000111" target="_blank" rel="noreferrer">Fine-tuning text-to-SQL models with reinforcement-learning training objectives</a> — NLP Journal, 2025
+- <a href="https://ieeexplore.ieee.org/document/9953623" target="_blank">A liveness detection protocol based on deep visual-linguistic alignment</a> — IEEE KSE, 2022
 
-**Get in touch:** [bangnbx@gmail.com](mailto:bangnbx@gmail.com) · [GitHub](https://github.com/bangnbx)
+**Get in touch:** <a href="#" onclick="location.href='mailto:' + ['bangnbx','gmail.com'].join('@'); return false;">bangnbx [at] gmail [dot] com</a> 
