@@ -3,7 +3,7 @@ layout: page
 title: Resume
 icon: fas fa-file
 order: 5
-permalink: /resume/
+permalink: /resume
 ---
 
 <style>

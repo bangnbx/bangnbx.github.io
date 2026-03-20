@@ -3,6 +3,7 @@ layout: page
 title: About me
 icon: fas fa-info-circle
 order: 4
+permalink: /about
 ---
 
 I'm Bang Nguyen, a software engineer based in Hanoi, Vietnam with 9+ years of experience spanning backend development, AI research, and blockchain infrastructure.
