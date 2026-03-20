@@ -105,6 +105,9 @@ collections:
     output: true
     sort_by: order
 
+
+permalink: /posts/:title:output_ext
+
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
