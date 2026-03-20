@@ -31,7 +31,7 @@ analytics:
 theme_mode:
 
 # Avatar (add your photo to assets/img/avatar.jpg)
-avatar: /assets/img/favicon.svg
+avatar: /assets/img/favicons/web-app-manifest-512x512.png
 
 # Table of contents
 toc: true
