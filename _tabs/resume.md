@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bang Nguyen — Resume
+title: Bang Nguyen - Resume
 icon: fas fa-file
 order: 5
 description: Software engineer — Solana infrastructure, low-latency systems, back-end development, ML integration. Rust, Python, JavaScript
