@@ -1,5 +1,5 @@
 ---
-title: The Quest for Nanosecond Lookups on 1 billion Solana Keys
+title: The Quest for Microsecond Lookups on 1 billion Solana Keys
 image: /assets/img/posts/rocksdb-lmdb-redb-benchmark-banner.png
 description: Benchmarking RocksDB, LMDB, and redb at 1 billion Solana keys — bootstrap, positive/negative reads, and live stream validation under memory pressure.
 date: 2026-01-14 10:14:00 +0700
