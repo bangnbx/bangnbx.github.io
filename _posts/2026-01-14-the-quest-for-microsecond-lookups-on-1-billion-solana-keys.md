@@ -68,7 +68,7 @@ To compare these three engines fairly, I designed a benchmark that mirrors my ac
 2. **Positive read** — after bootstrap, query 10M random keys that exist in the database
 3. **Live stream** — consume the real gRPC stream for 10M events and measure performance under production conditions
 
-For RocksDB, I tested two configurations: vanilla (default settings) and with bloom filters enabled (20 bits per key per SST file). Bloom filters allow RocksDB to skip disk reads entirely for non-existent keys, at the cost of additional memory proportional to the number of keys. LMDB and redb have no equivalent tuning — their B+tree lookups always traverse the tree regardless of key existence.
+For RocksDB, I tested two configurations: vanilla (default settings) and with bloom filters enabled (20 bits per key). Bloom filters allow RocksDB to skip disk reads entirely for non-existent keys, at the cost of ~1.7GB for 700M keys and ~2.5GB for 1B keys. LMDB and redb have no equivalent tuning — their B+tree lookups always traverse the tree regardless of key existence.
 
 The metrics I focused on:
 - **Read latency** — single `get(key)` operation
@@ -148,16 +148,25 @@ For durability, I commit every 1,000 events to disk. The "Commit / item" row in 
 |--------------------|------------------|------------------|-------------|----------------|-------------|-------------|
 | **Negative Read**  |                  |                  |             |                |             |             |
 | avg                | 3.4 µs           | 3.5 µs           | 273 µs      | 450 µs         | 94.6 µs     | 133 µs      |
-| range              | stable           | stable           | stable      | spiky          | stable      | stable      |
+| p90                | 3.5 µs           | 3.6 µs           | 304 µs      | 613 µs         | 99.3 µs     | 143 µs      |
+| p99                | 7.1 µs           | 16.0 µs          | 312 µs      | 1,630 µs       | 104 µs      | 151 µs      |
+| range              | stable           | stable + spikes  | stable      | spiky          | stable      | stable      |
 | **Positive Read**  |                  |                  |             |                |             |             |
 | avg                | 5.4 µs           | 5.4 µs           | 3.8 µs      | 7.9 µs         | 2.1 µs      | 2.3 µs      |
+| p90                | 6.9 µs           | 6.9 µs           | 5.3 µs      | 11.8 µs        | 2.6 µs      | 3.7 µs      |
+| p99                | 11.9 µs          | 14.2 µs          | 7.5 µs      | 32.6 µs        | 3.8 µs      | 4.8 µs      |
 | range              | noisy            | noisy            | smooth      | noisy          | smooth      | smooth      |
 | **Write**          |                  |                  |             |                |             |             |
 | avg                | 4.3 µs           | 6.3 µs           | 1.4 µs      | 2.1 µs         | 6.3 µs      | 6.5 µs      |
+| p90                | 7.6 µs           | 5.6 µs           | 1.5 µs      | 2.2 µs         | 7.9 µs      | 8.2 µs      |
+| p99                | 7.6 µs           | 119.6 µs         | 1.7 µs      | 19.2 µs        | 9.5 µs      | 9.5 µs      |
 | range              | stable + spikes  | stable + spikes  | stable      | stable         | stable      | stable      |
 | **Commit / item**  |                  |                  |             |                |             |             |
 | avg                | 9.9 µs           | 12.7 µs          | 0.3 µs      | 18.6 µs        | 0.4 µs      | 0.3 µs      |
-| range              | high start, variable | high start, variable | moderate | huge variance | moderate| moderate    |
+| p90                | 12.3 µs          | 17.2 µs          | 0.4 µs      | 38.6 µs        | 0.5 µs      | 0.4 µs      |
+| p99                | 105.9 µs         | 49.3 µs          | 0.7 µs      | 65.5 µs        | 0.6 µs      | 0.5 µs      |
+| range              | high start, variable | high start, variable | moderate | huge variance | moderate | moderate |
+
 
 Under production conditions with a real gRPC stream, RocksDB with bloom filters delivers 3.4µs negative reads and 5.4µs positive reads — both stable regardless of memory pressure. LMDB achieves faster positive reads (3.8µs) with ample RAM, but degrades sharply under memory constraints, with commit time becoming a bottleneck at 18.6µs per item. redb offers the best positive read latency (2.1µs) but its negative read performance (94.6µs) and write latency (6.3µs) make it less suitable for a mixed workload that must handle both existing and new keys.
 
