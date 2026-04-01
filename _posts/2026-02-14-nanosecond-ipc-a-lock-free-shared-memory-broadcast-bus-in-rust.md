@@ -8,7 +8,7 @@ tags: [rust, IPC, shared-memory, lock-free, low-latency, linux]
 comments: true
 ---
 
-In the <a href="/posts/the-quest-for-microsecond-lookups-on-1-billion-solana-keys/" target="_blank">previous post</a>, I chose RocksDB as the embedded database for storing nearly 1 billion Solana key-value pairs. I mentioned that the system must recover gracefully after a crash or restart — here's why that matters.
+In the <a href="/posts/the-quest-for-microsecond-lookups-on-1-billion-solana-keys.html" target="_blank">previous post</a>, I chose RocksDB as the embedded database for storing nearly 1 billion Solana key-value pairs. I mentioned that the system must recover gracefully after a crash or restart — here's why that matters.
 
 The database is fed by remote gRPC streams, which are inherently less reliable than local computation — connections drop, providers go down, slots get skipped. If the DB runs as a child component inside the main application, a crash in any part of the app takes everything down: the gRPC connection, the database state, and every downstream consumer. Restarting means re-establishing the stream, re-validating state, and potentially re-bootstrapping — all while downstream processes are blind.
 
